@@ -4,6 +4,8 @@ import { Url, UrlDocument } from './schemas/url.schema';
 import { Model } from 'mongoose';
 import * as CRC from 'crc-32';
 
+const basepath = process.env.BASE_URL || 'http://localhost:3000/';
+
 @Injectable()
 export class UrlService {
   constructor(@InjectModel(Url.name) private urlModel: Model<UrlDocument>) {}
@@ -19,7 +21,7 @@ export class UrlService {
       shortenedUrl: this.shrink(url),
     });
     await createdUrl.save();
-    return createdUrl.shortenedUrl;
+    return basepath + 's/' + createdUrl.shortenedUrl;
   }
   // Retrieves the saved URL from the MongoDB.
   async find(shortenedUrl: string) {
