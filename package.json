@@ -25,6 +25,7 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/mongoose": "^9.2.1",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/throttler": "^4.0.0",
     "crc-32": "^1.2.2",
     "mongoose": "^6.10.2",
     "reflect-metadata": "^0.1.13",

@@ -1,5 +1,6 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Res } from '@nestjs/common';
 import { UrlService } from './url.service';
+import { SkipThrottle } from '@nestjs/throttler';
 
 @Controller('')
 export class UrlController {
@@ -15,8 +16,10 @@ export class UrlController {
     return this.urlService.create(body.url);
   }
 
+  @SkipThrottle()
   @Get('/s/:shortenedUrl')
-  unshrink(@Param('shortenedUrl') shortenedUrl: string) {
-    return this.urlService.find(shortenedUrl);
+  async unshrink(@Res() res, @Param('shortenedUrl') shortenedUrl: string) {
+    const url = await this.urlService.find(shortenedUrl);
+    return res.redirect(url);
   }
 }
