@@ -22,52 +22,62 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+# Nestly
 
-## Installation
+The aim of the project is to develop a URL shortening application using NestJs, MongoDB, and Docker.
 
-```bash
-$ npm install
-```
 
-## Running the app
+## Run Locally
+
+Clone the project
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+  git clone https://github.com/mbakin/nestly.git
 ```
 
-## Test
+Go to the project directory
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+  cd nestly
 ```
 
-## Support
+Install dependencies
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+  npm install
+```
 
-## Stay in touch
+Start the server
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+  npm run start:dev
+```
 
-## License
 
-Nest is [MIT licensed](LICENSE).
+## URL Shortener Architecture
+
+<img width="620" alt="shortener-architecture" src="https://user-images.githubusercontent.com/68995469/224488052-de89847b-8934-45f0-a8aa-450d8eff73a8.png">
+
+<br>
+
+> Basic use cases:
+>
+>       - URL shortening: given a long URL => return a much shorter URL
+>       - URL redirecting: given a shorter URL => redirect to the original URL
+>       - High availability, scalability, and fault tolerance considerations
+
+_System Design Interview – An Insider's Guide,Alex Xu_
+
+<img width="621" alt="diagram" src="https://user-images.githubusercontent.com/68995469/224488747-8ae3ad31-f31c-4401-9f3a-18c7d18a5013.png">
+
+
+
+
+
+## Tech Stack
+
+- Nestjs
+- MongoDB
+- Docker
+- Typescript
